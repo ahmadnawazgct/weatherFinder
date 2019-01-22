@@ -1,0 +1,67 @@
+<div id="weatherfinder">
+    <div class="wrapper">
+      <div class="main">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5 title-container">
+              <div>
+                <h1 class="title-container__title">Find Weather</h1>
+                <p class="title-container__subtitle">Temperature,humidity,wind speed and  many more....</p>
+              </div>
+            </div>
+            <div class="col-md-7 form-container">
+                <form #inputForm="ngForm" (ngSubmit) ="onSubmit(inputForm.value); inputForm.reset()">
+                  <input name="city" placeholder="City..."  [(ngModel)]="city" >
+                  <input name="country"  placeholder="Country..." [(ngModel)]="country">
+
+                  <button  type="submit"  class="submit">Submit</button>
+                  <button type="submit" class="submit" (click)="resetForm()" >Reset</button><br /><br />
+                </form>
+            
+            <div class="weather__info">
+                <p class="weather__key">City: 
+                <span class="weather__value">{{weather.name}}</span></p>
+                <p class="weather__key">Country:
+                <span class="weather__value">{{weather.sys.country}}</span>
+                </p>
+                <p class="weather__key">Temperature:
+                <span class="weather__value">{{weather.main.temp}} </span>
+                </p> 
+                <p class="weather__key">Humidity:
+                <span class="weather__value">{{weather.main.humidity}} (g/m3)</span>
+                </p> 
+                <p class="weather__key">Pressure:
+                <span class="weather__value">{{weather.main.pressure}} degrees</span>
+                </p> 
+                <p class="weather__key">Maximum Temperature:
+                <span class="weather__value">{{weather.main.temp_max}} deg Cels </span>
+                </p> 
+                <p class="weather__key">Minimum Temperature:
+                <span class="weather__value">{{weather.main.temp_min}} deg Cels </span>
+                </p> 
+                
+                <p class="weather__key">Wind Speed:
+                <span class="weather__value">{{weather.wind.speed}} m/s </span>
+                </p> 
+                <p class="weather__key">Wind Direction:
+                <span class="weather__value">{{weather.wind.deg}}</span>
+                </p> 
+                <p class="weather__key">Longitude:
+                <span class="weather__value">   {{weather.coord.lon}}</span>
+                </p> 
+                <p class="weather__key">Latitude:
+                <span class="weather__value">{{weather.coord.lat}} </span>
+                </p> 
+                <p class="weather__key">Weather Description:
+                <span class="weather__value">{{weather.weather[0].description}}</span>
+                </p> 
+                <p class="weather__error"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+
+  
